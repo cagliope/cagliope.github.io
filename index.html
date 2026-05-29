@@ -2255,39 +2255,52 @@ function SecondNatureApp() {
   const callGaia = useCallback(async (rs, ctx = "") => {
     if (aiLoading) return;
     setAiLoading(true);
-    const recent = rs.slice(-8).map(r => `${r.time}: ${r.value}`).join(", ");
+    await new Promise(r => setTimeout(r, 900));
     const lat = rs[rs.length - 1];
-    try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
-          system: `You are Gaia, a warm and intelligent diabetes companion embedded in a CGM app called Second Nature.
-You speak in first person, warmly and concisely. You provide glucose insights and gentle guidance.
-Respond ONLY with a JSON object (no markdown, no backticks):
-{
-  "voice": "1-2 sentence warm, personal message from Gaia to the user",
-  "type": "Text" or "Call",
-  "urgent": true/false,
-  "suggestedDose": number or null,
-  "doseReason": "brief reason or null"
-}
-Low <70: urgent, supportive, no dose. High >180 + rising: calm, suggest small correction. In range: affirming. Always sound like a caring companion.`,
-          messages: [{ role:"user", content:`Readings: ${recent}\nLatest: ${lat?.value} mg/dL, trend: ${trendArrow(rs)}\n${ctx}` }]
-        })
-      });
-      const data = await res.json();
-      const text = data.content?.map(b => b.text || "").join("") || "";
-      const parsed = JSON.parse(text.replace(/```json|```/g,"").trim());
-      setGaiaMsg(parsed.voice);
-      const notif = { message:parsed.voice, type:`${parsed.urgent?"📞 Call":"📱 Text"}`, urgent:parsed.urgent, time:now(), id:Date.now() };
-      setNotifications(prev => [notif, ...prev].slice(0,10));
-      if (parsed.suggestedDose) setPendingDose({ dose:parsed.suggestedDose, reason:parsed.doseReason });
-    } catch {
-      setGaiaMsg("I couldn't connect right now. Check your network and try again.");
+    const val = lat?.value || 120;
+    const arrow = trendArrow(rs);
+    const inR = rs.filter(r => r.value >= 70 && r.value <= 180).length;
+    const pct = rs.length ? Math.round((inR / rs.length) * 100) : 0;
+
+    let voice, urgent = false, suggestedDose = null, doseReason = null, type = "Text";
+
+    if (val < 55) {
+      voice = "Your glucose is critically low right now — please treat immediately with fast-acting carbs. I'm watching closely and I'm here with you.";
+      urgent = true; type = "Call";
+    } else if (val < 70) {
+      voice = `You're running low at ${val} mg/dL. Have 15g of fast carbs now and check again in 15 minutes — I'll be right here with you.`;
+      urgent = true; type = "Call";
+    } else if (val > 250) {
+      voice = `Your glucose is quite high at ${val} mg/dL. Let's bring this down gently — staying hydrated will help while we work on a correction.`;
+      urgent = true; type = "Call";
+      suggestedDose = 2.0;
+      doseReason = `${val} mg/dL is significantly elevated. A 2u correction is suggested — confirm before dispensing.`;
+    } else if (val > 180 && (arrow === "↑↑" || arrow === "↑")) {
+      voice = `You're at ${val} mg/dL and trending up. A small correction now could help flatten this out before it climbs further.`;
+      suggestedDose = 1.0;
+      doseReason = `${val} mg/dL with a rising trend — 1u correction suggested to stabilize.`;
+    } else if (val > 180) {
+      voice = `You're a little elevated at ${val} mg/dL, but the trend looks stable. Keep an eye on it and consider a light correction if it climbs.`;
+    } else if (val >= 70 && val <= 120) {
+      const msgs = [
+        `Beautiful — ${val} mg/dL is right where we want to be. You're doing a wonderful job managing today.`,
+        `${val} mg/dL with a ${pct}% time-in-range today. That kind of consistency takes real effort — I see you.`,
+        `You're sitting at a steady ${val} mg/dL. Your body is in a good rhythm right now — enjoy the calm.`,
+      ];
+      voice = msgs[Math.floor(Math.random() * msgs.length)];
+    } else {
+      const msgs = [
+        `${val} mg/dL — you're in a great range right now. ${arrow === "→" ? "Trend is nice and flat." : "Keep an eye on that trend."}`,
+        `Solid reading at ${val} mg/dL. You've been in range ${pct}% of the time today — keep it up.`,
+        `${val} mg/dL looks great. If you've eaten recently, your body is handling it well.`,
+      ];
+      voice = msgs[Math.floor(Math.random() * msgs.length)];
     }
+
+    setGaiaMsg(voice);
+    const notif = { message: voice, type: `${urgent ? "📞 Call" : "📱 Text"}`, urgent, time: now(), id: Date.now() };
+    setNotifications(prev => [notif, ...prev].slice(0, 10));
+    if (suggestedDose) setPendingDose({ dose: suggestedDose, reason: doseReason });
     setAiLoading(false);
   }, [aiLoading]);
 
