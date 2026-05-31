@@ -2239,7 +2239,81 @@
         <span style="font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--pink);">Live Demo</span>
       </div>
       <h2 style="font-family:var(--font-d);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cream);margin-bottom:.8rem;line-height:1;">Interactive <em style="color:#6EE7B7;font-style:italic;">Prototype</em></h2>
-      <p style="font-size:.95rem;color:var(--muted);line-height:1.75;max-width:780px;margin-bottom:1.8rem;">The prototype below is fully functional. Use <strong style="color:var(--cream);">Start sim</strong> to watch live glucose readings, enter manual readings, and tap <strong style="color:var(--cream);">Ask Gaia</strong> to get real AI-powered insights from Claude. The pump tab lets you manage basal rate and deliver correction boluses.</p>
+      <p style="font-size:.95rem;color:var(--muted);line-height:1.75;max-width:780px;margin-bottom:1.8rem;">The prototype below is fully functional. Use <strong style="color:var(--cream);">Start sim</strong> to watch live glucose readings, enter manual readings, and tap <strong style="color:var(--cream);">Ask Gaia</strong> to get real AI-powered insights. The pump tab lets you manage basal rate and deliver correction boluses.</p>
+
+      <!-- How to Use Guide -->
+      <div style="margin-bottom:1.8rem;border-radius:12px;overflow:hidden;border:1px solid rgba(16,185,129,.2);">
+
+        <!-- Header -->
+        <div style="background:rgba(16,185,129,.12);padding:1rem 1.5rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid rgba(16,185,129,.15);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p style="font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#6EE7B7;margin:0;">How to Test the Prototype</p>
+        </div>
+
+        <!-- Try This First -->
+        <div style="padding:1.4rem 1.5rem;background:rgba(7,5,26,.5);border-bottom:1px solid rgba(196,181,253,.08);">
+          <p style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lavender);margin-bottom:.9rem;">★ Start Here — Enter a Glucose Reading</p>
+          <p style="font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:1rem;">Use the <strong style="color:var(--cream);">Log reading</strong> form field to manually enter a glucose value and see Gaia respond in real time. Try these scenarios:</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;">
+            <div style="padding:1rem;background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.25);border-radius:8px;text-align:center;">
+              <p style="font-family:var(--font-d);font-size:1.8rem;font-weight:700;color:#F87171;line-height:1;margin-bottom:.3rem;">60</p>
+              <p style="font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#F87171;margin-bottom:.4rem;">Critical Low</p>
+              <p style="font-size:.78rem;color:var(--muted);line-height:1.5;">Triggers an urgent Call alert. Gaia responds with immediate action guidance.</p>
+            </div>
+            <div style="padding:1rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:8px;text-align:center;">
+              <p style="font-family:var(--font-d);font-size:1.8rem;font-weight:700;color:#6EE7B7;line-height:1;margin-bottom:.3rem;">110</p>
+              <p style="font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#6EE7B7;margin-bottom:.4rem;">In Range</p>
+              <p style="font-size:.78rem;color:var(--muted);line-height:1.5;">Gaia responds warmly and affirmingly. Text notification, no urgency.</p>
+            </div>
+            <div style="padding:1rem;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:8px;text-align:center;">
+              <p style="font-family:var(--font-d);font-size:1.8rem;font-weight:700;color:#FCD34D;line-height:1;margin-bottom:.3rem;">320</p>
+              <p style="font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#FCD34D;margin-bottom:.4rem;">Critical High</p>
+              <p style="font-size:.78rem;color:var(--muted);line-height:1.5;">Triggers a Call alert and Gaia suggests a correction bolus via the pump.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab guide -->
+        <div style="padding:1.4rem 1.5rem;background:rgba(7,5,26,.4);">
+          <p style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lavender);margin-bottom:1rem;">Explore Each Tab</p>
+          <div style="display:flex;flex-direction:column;gap:.75rem;">
+
+            <div style="display:grid;grid-template-columns:1.8rem 1fr;gap:.9rem;align-items:start;">
+              <div style="width:1.8rem;height:1.8rem;border-radius:6px;background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.3);display:flex;align-items:center;justify-content:center;font-size:.75rem;">📊</div>
+              <div>
+                <p style="font-size:.82rem;font-weight:600;color:var(--cream);margin-bottom:.25rem;">Dashboard</p>
+                <p style="font-size:.82rem;color:var(--muted);line-height:1.65;">Your main glucose view. Start the simulator to watch readings update in real time, view your trend chart, and see your time-in-range breakdown. Hit <strong style="color:var(--cream);">Ask Gaia</strong> at any time for an AI-powered insight based on your current data.</p>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1.8rem 1fr;gap:.9rem;align-items:start;">
+              <div style="width:1.8rem;height:1.8rem;border-radius:6px;background:rgba(196,181,253,.12);border:1px solid rgba(196,181,253,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;">🔔</div>
+              <div>
+                <p style="font-size:.82rem;font-weight:600;color:var(--cream);margin-bottom:.25rem;">Notifications</p>
+                <p style="font-size:.82rem;color:var(--muted);line-height:1.65;">Customize how Gaia reaches you — choose <strong style="color:var(--cream);">Text</strong>, <strong style="color:var(--cream);">Call</strong>, or <strong style="color:var(--cream);">Both</strong> for your preferred alert method. Enter your phone number in the easy-to-locate input field. Every notification Gaia sends is logged here in real time — so you can track exactly when and why the AI agent reached out.</p>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1.8rem 1fr;gap:.9rem;align-items:start;">
+              <div style="width:1.8rem;height:1.8rem;border-radius:6px;background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;">💉</div>
+              <div>
+                <p style="font-size:.82rem;font-weight:600;color:var(--cream);margin-bottom:.25rem;">Pump</p>
+                <p style="font-size:.82rem;color:var(--muted);line-height:1.65;">Simulates your connected wireless insulin pump. Adjust your basal rate, deliver a quick correction bolus, and view your delivery log. When glucose is critically high, Gaia will suggest a dose here — you can confirm or dismiss before delivery.</p>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1.8rem 1fr;gap:.9rem;align-items:start;">
+              <div style="width:1.8rem;height:1.8rem;border-radius:6px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;">📋</div>
+              <div>
+                <p style="font-size:.82rem;font-weight:600;color:var(--cream);margin-bottom:.25rem;">History</p>
+                <p style="font-size:.82rem;color:var(--muted);line-height:1.65;">A full log of every glucose reading captured during your session — whether entered manually or generated by the simulator. Review your readings chronologically to spot trends, identify patterns, and understand how your glucose responded over time.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /how to use -->
 
       <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(196,181,253,.2);box-shadow:0 24px 60px rgba(0,0,0,.5);">
         <div style="background:#E8EDE4;padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #D0D9CC;">
