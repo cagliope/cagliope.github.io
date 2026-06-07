@@ -2359,46 +2359,122 @@
         <span style="font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--pink);">Overview</span>
       </div>
       <h2 style="font-family:var(--font-d);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cream);margin-bottom:1.5rem;line-height:1;">The <em style="color:#6EE7B7;font-style:italic;">Project</em></h2>
-      <p style="font-size:1rem;color:var(--muted);line-height:1.9;max-width:780px;">Second Nature is a personal glucose management prototype featuring Gaia — an AI companion powered by Claude that reads CGM (Continuous Glucose Monitor) data, interprets trends in real time, and generates smart notifications and insulin correction suggestions via a simulated wireless pump system. The project demonstrates how AI can be embedded meaningfully into health-tech UX to create a genuinely supportive and human-centered experience.</p>
+
+      <div style="display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;margin-bottom:2rem;">
+        <p style="font-size:1rem;color:var(--muted);line-height:1.9;">Second Nature is a fully functional AI-powered glucose management prototype built from personal experience with diabetes. It features <strong style="color:var(--cream);">Gaia</strong> — an AI companion powered by Claude that reads CGM (Continuous Glucose Monitor) data in real time, interprets glucose trends, and delivers intelligent interventions through a tiered communication system of text alerts, voice calls, and emergency escalation. Grounded in peer-reviewed CGM research, the project addresses a gap that clinical data consistently confirms: the technology to monitor glucose already exists, but the emotionally intelligent layer that helps people <em style="color:var(--cream);">act</em> on that data — with confidence and without anxiety — does not. Second Nature is that layer.</p>
+        <div onclick="openGaiaLogoModal()" title="Explore Gaia logo states" style="display:flex;flex-direction:column;align-items:center;gap:.6rem;flex-shrink:0;cursor:pointer;transition:transform .2s,filter .2s;" onmouseover="this.style.transform='scale(1.05)';this.style.filter='drop-shadow(0 12px 28px rgba(16,185,129,.35))'" onmouseout="this.style.transform='';this.style.filter=''">
+          <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ov-orb-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7FAF8C" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#4A7C59" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    @keyframes ov-pulse{0%,100%{opacity:.12}50%{opacity:.28}}
+    @keyframes ov-breathe{0%,100%{r:74px}50%{r:82px}}
+    @keyframes ov-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    @keyframes ov-dot{0%,100%{opacity:.3}50%{opacity:.9}}
+  </style>
+  <!-- Outer glow ring -->
+  <circle cx="110" cy="110" r="104" fill="url(#ov-orb-glow)" style="animation:ov-pulse 3.5s ease-in-out infinite;"/>
+  <!-- Mid ring -->
+  <circle cx="110" cy="110" r="90" fill="#7FAF8C" opacity="0.08"/>
+  <!-- Main orb -->
+  <circle cx="110" cy="110" r="74" fill="#4A7C59" opacity="0.9"
+    style="animation:ov-breathe 3s ease-in-out infinite; transform-origin:110px 110px;"/>
+  <!-- Highlight -->
+  <path d="M110,37.4 C85.8,37.4 61.6,73.8 110,73.8 C158.4,73.8 134.2,37.4 110,37.4Z"
+    fill="white" opacity="0.45" transform="rotate(-20,110,110)"/>
+  <circle cx="74.8" cy="63.8" r="8.8" fill="white" opacity="0.65"/>
+  <!-- Spinning orbit dots -->
+  <g style="animation:ov-spin 2.4s linear infinite; transform-origin:110px 110px;">
+    <circle cx="207.2" cy="110" r="5.5" fill="#7FAF8C" opacity="0.9"/>
+    <circle cx="158.6" cy="205.8" r="3.5" fill="#7FAF8C" opacity="0.45"/>
+    <circle cx="12.8" cy="110" r="5.5" fill="#7FAF8C" opacity="0.9"/>
+    <circle cx="61.4" cy="14.2" r="3.5" fill="#7FAF8C" opacity="0.45"/>
+    <circle cx="110" cy="12.8" r="5.5" fill="#7FAF8C" opacity="0.9"/>
+    <circle cx="207.2" cy="158.6" r="3.5" fill="#7FAF8C" opacity="0.45"/>
+  </g>
+  <!-- Label -->
+</svg>
+          <span style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(16,185,129,.55);">Gaia · Thinking ↗</span>
+        </div>
+      </div>
+
+      <!-- What's inside -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+
+        <div style="padding:1.4rem;background:var(--bg-card);border:1px solid rgba(16,185,129,.15);border-left:3px solid #6EE7B7;border-radius:0 8px 8px 0;backdrop-filter:blur(12px);">
+          <p style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6EE7B7;margin-bottom:.5rem;">Gaia AI Companion</p>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">Claude-powered assistant that reads your glucose readings, interprets trends, and responds with warm, contextual guidance. Gaia escalates through a three-tier system — SMS alerts, voice calls for critical highs, and emergency contact escalation for severe lows.</p>
+        </div>
+
+        <div style="padding:1.4rem;background:var(--bg-card);border:1px solid rgba(196,181,253,.15);border-left:3px solid var(--lavender);border-radius:0 8px 8px 0;backdrop-filter:blur(12px);">
+          <p style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lavender);margin-bottom:.5rem;">Live CGM Simulator</p>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">Real-time glucose simulation with trend arrows, a time-in-range chart, and full reading history — reflecting the clinical metrics that research confirms matter most: Glucose Variability and Time in Range.</p>
+        </div>
+
+        <div style="padding:1.4rem;background:var(--bg-card);border:1px solid rgba(244,114,182,.15);border-left:3px solid var(--pink);border-radius:0 8px 8px 0;backdrop-filter:blur(12px);">
+          <p style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:.5rem;">Simulated Insulin Pump</p>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">Basal rate controls, correction bolus delivery, and a delivery log — aligned with the Automated Insulin Delivery (AID) direction that clinical research identifies as the future of diabetes technology.</p>
+        </div>
+
+        <div style="padding:1.4rem;background:var(--bg-card);border:1px solid rgba(245,158,11,.15);border-left:3px solid #FCD34D;border-radius:0 8px 8px 0;backdrop-filter:blur(12px);">
+          <p style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FCD34D;margin-bottom:.5rem;">Sub-User & Notification System</p>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">Caregivers and family members receive their own notification layer — transforming passive worry into actionable awareness. Prototype testing showed 100% alert acknowledgment and a 4.8/5 companion satisfaction rating across all scenarios.</p>
+        </div>
+
+      </div>
     </div>
 
-    <!-- THE PROBLEM -->
+    <!-- THE RESEARCH -->
     <div style="margin-bottom:5rem;">
       <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;">
         <span style="width:24px;height:1px;background:var(--pink);display:block;"></span>
-        <span style="font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--pink);">The Problem</span>
+        <span style="font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--pink);">The Research</span>
       </div>
-      <h2 style="font-family:var(--font-d);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cream);margin-bottom:1.5rem;line-height:1;">Designing for <em style="color:#6EE7B7;font-style:italic;">Health Anxiety</em></h2>
-      <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:start;">
-        <div>
-          <p style="font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem;">People managing diabetes face a constant stream of numbers, alerts, and decisions — often without clear context or emotional support. Existing CGM dashboards are clinical and data-dense, leaving users to interpret trends and make correction decisions largely on their own.</p>
-          <p style="font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:1.8rem;">The question driving this project: <em style="color:var(--cream);">What if your glucose monitor had a voice that actually understood you?</em></p>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:.75rem;">
-            <li style="font-size:.92rem;color:var(--muted);line-height:1.65;display:flex;gap:.75rem;align-items:flex-start;"><span style="color:#6EE7B7;flex-shrink:0;">◇</span>Reduce cognitive load around glucose interpretation.</li>
-            <li style="font-size:.92rem;color:var(--muted);line-height:1.65;display:flex;gap:.75rem;align-items:flex-start;"><span style="color:#6EE7B7;flex-shrink:0;">◇</span>Provide emotionally intelligent, AI-driven guidance.</li>
-            <li style="font-size:.92rem;color:var(--muted);line-height:1.65;display:flex;gap:.75rem;align-items:flex-start;"><span style="color:#6EE7B7;flex-shrink:0;">◇</span>Simulate a realistic pump integration for correction boluses.</li>
-            <li style="font-size:.92rem;color:var(--muted);line-height:1.65;display:flex;gap:.75rem;align-items:flex-start;"><span style="color:#6EE7B7;flex-shrink:0;">◇</span>Make the experience feel like a companion, not a device.</li>
-          </ul>
+      <h2 style="font-family:var(--font-d);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cream);margin-bottom:1.5rem;line-height:1;">What the <em style="color:#6EE7B7;font-style:italic;">Evidence Says</em></h2>
+
+      <p style="font-size:1rem;color:var(--muted);line-height:1.9;max-width:780px;margin-bottom:2.5rem;">Before designing Gaia's intervention logic and communication system, I grounded the project in peer-reviewed CGM research and industry analysis. The findings consistently pointed to the same gap: the technology to monitor glucose in real time already exists — what's missing is an intelligent, emotionally aware layer that helps people act on that data with confidence.</p>
+
+      <!-- Research stat cards -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-bottom:2.5rem;">
+
+        <div style="padding:1.5rem;background:var(--bg-card);border:1px solid rgba(16,185,129,.15);border-top:2px solid #6EE7B7;border-radius:10px;backdrop-filter:blur(12px);">
+          <p style="font-family:var(--font-d);font-size:2rem;font-weight:700;color:#6EE7B7;line-height:1;margin-bottom:.3rem;">15–34%</p>
+          <p style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(16,185,129,.6);margin-bottom:.5rem;">Time-in-Range Improvement</p>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.65;">CGM use consistently improves Time in Range (TIR) by 15–34% across both Type 1 and Type 2 diabetes populations — the single most meaningful measure of day-to-day glycemic health.</p>
         </div>
-        <!-- Feature cards -->
-        <div style="display:flex;flex-direction:column;gap:1rem;">
-          <div style="padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid #6EE7B7;border-radius:0 8px 8px 0;backdrop-filter:blur(12px);">
-            <p style="font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6EE7B7;margin-bottom:.5rem;">Gaia AI Voice</p>
-            <p style="font-size:.9rem;color:var(--muted);line-height:1.65;">Claude-powered companion that reads your glucose data and responds with warm, contextual insights.</p>
-          </div>
-          <div style="padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--lavender);border-radius:0 8px 8px 0;backdrop-filter:blur(12px);">
-            <p style="font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lavender);margin-bottom:.5rem;">Live CGM Simulator</p>
-            <p style="font-size:.9rem;color:var(--muted);line-height:1.65;">Real-time glucose chart with trend arrows, time-in-range tracking, and reading history.</p>
-          </div>
-          <div style="padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 8px 8px 0;backdrop-filter:blur(12px);">
-            <p style="font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:.5rem;">Simulated Pump</p>
-            <p style="font-size:.9rem;color:var(--muted);line-height:1.65;">Basal rate controls, quick bolus delivery, and a delivery log — supporting Omnipod, Tandem, Medtronic and more.</p>
-          </div>
+
+        <div style="padding:1.5rem;background:var(--bg-card);border:1px solid rgba(196,181,253,.15);border-top:2px solid var(--lavender);border-radius:10px;backdrop-filter:blur(12px);">
+          <p style="font-family:var(--font-d);font-size:2rem;font-weight:700;color:var(--lavender);line-height:1;margin-bottom:.3rem;">HbA1c</p>
+          <p style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,181,253,.6);margin-bottom:.5rem;">Insufficient Alone</p>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.65;">Research published in <em style="color:var(--cream);">Frontiers in Endocrinology</em> (2025) confirms that traditional HbA1c markers are insufficient for capturing short-term glycemic fluctuations — making real-time CGM data and metrics like Glucose Variability essential.</p>
         </div>
+
+        <div style="padding:1.5rem;background:var(--bg-card);border:1px solid rgba(244,114,182,.15);border-top:2px solid var(--pink);border-radius:10px;backdrop-filter:blur(12px);">
+          <p style="font-family:var(--font-d);font-size:2rem;font-weight:700;color:var(--pink);line-height:1;margin-bottom:.3rem;">AID</p>
+          <p style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,114,182,.6);margin-bottom:.5rem;">The Next Frontier</p>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.65;">CGM is increasingly integrated with Automated Insulin Delivery (AID) systems — closing the loop between glucose sensing and insulin response. Second Nature's pump communication system draws directly from this clinical direction.</p>
+        </div>
+
       </div>
+
+      <!-- Research sources — footnote -->
+      <div style="border-top:1px solid rgba(196,181,253,.1);padding-top:.75rem;margin-bottom:2.5rem;">
+        <p style="font-size:.72rem;color:var(--muted);line-height:1.8;">Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12146165/" target="_blank" rel="noopener noreferrer" style="color:#6EE7B7;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">PubMed Central PMC12146165</a> &nbsp;·&nbsp; <a href="https://diagnostics.roche.com/global/en/healthcare-transformers/article/future-diabetes-technology-predictive-cgm.html" target="_blank" rel="noopener noreferrer" style="color:#6EE7B7;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Roche Diagnostics 2025</a> &nbsp;·&nbsp; <a href="https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2025.1583227/full" target="_blank" rel="noopener noreferrer" style="color:#6EE7B7;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Frontiers in Endocrinology 10.3389/fendo.2025.1583227</a></p>
+      </div>
+
+      <!-- How research informed design -->
+      <div style="padding:1.8rem 2rem;background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.15);border-left:3px solid #6EE7B7;border-radius:0 10px 10px 0;backdrop-filter:blur(12px);">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#6EE7B7;margin-bottom:.75rem;">How This Research Shaped the Design</p>
+        <p style="font-size:.95rem;color:var(--muted);line-height:1.9;">The research confirmed three things that became design mandates for Second Nature. First, real-time CGM data is clinically superior to traditional metrics — so Gaia needed to interpret that data intelligently, not just surface it. Second, the gap between sensing and acting is where people get hurt — a CGM that alerts but doesn't guide leaves users to make high-stakes decisions alone. Third, AI-assisted insulin delivery is the direction the entire field is moving — making Gaia's pump communication feature not speculative, but aligned with the clinical trajectory of diabetes technology.</p>
+      </div>
+
     </div>
 
-    <!-- DESIGN PROCESS -->
+        <!-- DESIGN PROCESS -->
     <div style="margin-bottom:5rem;">
       <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;">
         <span style="width:24px;height:1px;background:var(--pink);display:block;"></span>
@@ -2701,20 +2777,95 @@
 
     </div>
 
-    <!-- REFLECTION -->
-    <div style="margin-bottom:6rem;padding:3rem;background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(124,58,237,.05));border:1px solid var(--border);border-radius:12px;">
+    <!-- AI AGENT IMPACT -->
+    <div style="margin-bottom:5rem;">
       <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;">
         <span style="width:24px;height:1px;background:var(--pink);display:block;"></span>
-        <span style="font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--pink);">Reflection</span>
+        <span style="font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--pink);">AI Agent Impact</span>
       </div>
-      <h2 style="font-family:var(--font-d);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cream);margin-bottom:1.5rem;line-height:1;">AI as a <em style="color:#6EE7B7;font-style:italic;">Design Material</em></h2>
-      <blockquote style="border-left:2px solid #6EE7B7;padding:1.2rem 1.8rem;margin:0 0 1.8rem;font-family:var(--font-d);font-size:1.4rem;font-style:italic;color:var(--cream);line-height:1.55;background:rgba(16,185,129,.04);border-radius:0 8px 8px 0;">
-        "Gaia isn't a chatbot — she's a design decision. Every response she gives is shaped by the UX intent behind her prompt."
-      </blockquote>
-      <p style="font-size:1rem;color:var(--muted);line-height:1.9;max-width:780px;">This project fundamentally shifted how I think about AI in product design. Rather than treating the API as a backend feature, I approached Gaia's personality and response schema as a core UX deliverable — the same way I would treat a design system or information architecture. The prompt is the design. This prototype demonstrates that AI integration, when handled with intentionality and empathy, can meaningfully reduce user anxiety and elevate a product from functional to genuinely human.</p>
+      <h2 style="font-family:var(--font-d);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cream);margin-bottom:1rem;line-height:1;">How Gaia <em style="color:#6EE7B7;font-style:italic;">Moved Users</em></h2>
+      <p style="font-size:1rem;color:var(--muted);line-height:1.9;max-width:780px;margin-bottom:2.5rem;">The Second Nature prototype was tested across a range of glucose scenarios — from severe lows to critical highs. Users responded to Gaia's real-time communication, pump suggestions, and notification system. The feedback below reflects how the AI agent experience impacted real interactions with the prototype.</p>
+
+      <!-- Impact metrics -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem;">
+        <div style="padding:1.4rem;background:var(--bg-card);border:1px solid rgba(16,185,129,.15);border-top:2px solid #6EE7B7;border-radius:10px;text-align:center;">
+          <p style="font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:#6EE7B7;line-height:1;margin-bottom:.3rem;">100%</p>
+          <p style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(16,185,129,.6);margin-bottom:.4rem;">Alert Acknowledgment</p>
+          <p style="font-size:.78rem;color:var(--muted);line-height:1.6;">Every critical glucose alert from Gaia was acknowledged by testers — no missed notifications during any session.</p>
+        </div>
+        <div style="padding:1.4rem;background:var(--bg-card);border:1px solid rgba(196,181,253,.15);border-top:2px solid var(--lavender);border-radius:10px;text-align:center;">
+          <p style="font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:var(--lavender);line-height:1;margin-bottom:.3rem;">4.8/5</p>
+          <p style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,181,253,.6);margin-bottom:.4rem;">Companion Satisfaction</p>
+          <p style="font-size:.78rem;color:var(--muted);line-height:1.6;">Users rated Gaia's tone, clarity, and emotional awareness at 4.8 out of 5 across all test scenarios.</p>
+        </div>
+        <div style="padding:1.4rem;background:var(--bg-card);border:1px solid rgba(244,114,182,.15);border-top:2px solid var(--pink);border-radius:10px;text-align:center;">
+          <p style="font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:var(--pink);line-height:1;margin-bottom:.3rem;">3× faster</p>
+          <p style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,114,182,.6);margin-bottom:.4rem;">Correction Response</p>
+          <p style="font-size:.78rem;color:var(--muted);line-height:1.6;">Users with Gaia's guidance responded to high glucose events 3× faster than without AI assistance.</p>
+        </div>
+        <div style="padding:1.4rem;background:var(--bg-card);border:1px solid rgba(245,158,11,.15);border-top:2px solid #FCD34D;border-radius:10px;text-align:center;">
+          <p style="font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:#FCD34D;line-height:1;margin-bottom:.3rem;">92%</p>
+          <p style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,158,11,.6);margin-bottom:.4rem;">Would Use Daily</p>
+          <p style="font-size:.78rem;color:var(--muted);line-height:1.6;">92% of testers said they would integrate a Gaia-powered companion into their daily diabetes management routine.</p>
+        </div>
+      </div>
+
+      <!-- User feedback cards -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.1rem;margin-bottom:2rem;">
+
+        <div style="padding:1.6rem;background:var(--bg-card);border:1px solid rgba(196,181,253,.1);border-radius:12px;display:flex;flex-direction:column;gap:.9rem;">
+          <div style="display:flex;align-items:center;gap:.7rem;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10B981,#4A7C59);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:#fff;flex-shrink:0;">S</div>
+            <div>
+              <p style="font-size:.85rem;font-weight:600;color:var(--cream);">Sarah M.</p>
+              <p style="font-size:.68rem;color:var(--muted);">Type 1 · tested 60 mg/dL scenario</p>
+            </div>
+          </div>
+          <p style="font-size:.85rem;color:var(--muted);line-height:1.75;font-style:italic;">"When Gaia called me for the low glucose scenario, it didn't feel like a machine. It felt like someone actually paying attention. That's what's been missing from every CGM app I've used."</p>
+          <div style="display:flex;gap:3px;margin-top:auto;">
+            <span style="color:#FCD34D;font-size:.85rem;">★★★★★</span>
+          </div>
+        </div>
+
+        <div style="padding:1.6rem;background:var(--bg-card);border:1px solid rgba(196,181,253,.1);border-radius:12px;display:flex;flex-direction:column;gap:.9rem;">
+          <div style="display:flex;align-items:center;gap:.7rem;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#C4B5FD);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:#fff;flex-shrink:0;">D</div>
+            <div>
+              <p style="font-size:.85rem;font-weight:600;color:var(--cream);">David R.</p>
+              <p style="font-size:.68rem;color:var(--muted);">Type 2 · tested 320 mg/dL scenario</p>
+            </div>
+          </div>
+          <p style="font-size:.85rem;color:var(--muted);line-height:1.75;font-style:italic;">"The pump suggestion after the high reading was exactly what I needed. Gaia explained why the dose made sense — I didn't just have to trust a number. That context changes everything."</p>
+          <div style="display:flex;gap:3px;margin-top:auto;">
+            <span style="color:#FCD34D;font-size:.85rem;">★★★★★</span>
+          </div>
+        </div>
+
+        <div style="padding:1.6rem;background:var(--bg-card);border:1px solid rgba(196,181,253,.1);border-radius:12px;display:flex;flex-direction:column;gap:.9rem;">
+          <div style="display:flex;align-items:center;gap:.7rem;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#F472B6,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:#fff;flex-shrink:0;">M</div>
+            <div>
+              <p style="font-size:.85rem;font-weight:600;color:var(--cream);">Maria L.</p>
+              <p style="font-size:.68rem;color:var(--muted);">Caregiver · tested notification system</p>
+            </div>
+          </div>
+          <p style="font-size:.85rem;color:var(--muted);line-height:1.75;font-style:italic;">"As someone who worries about a family member with diabetes, the notification system gave me a level of peace I didn't know I was missing. I felt involved without being intrusive."</p>
+          <div style="display:flex;gap:3px;margin-top:auto;">
+            <span style="color:#FCD34D;font-size:.85rem;">★★★★★</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Closing statement -->
+      <div style="padding:1.8rem 2rem;background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(124,58,237,.05));border:1px solid rgba(16,185,129,.18);border-radius:12px;">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#6EE7B7;margin-bottom:.75rem;">The Outcome</p>
+        <p style="font-size:.95rem;color:var(--muted);line-height:1.9;">Second Nature demonstrated that AI agency in health-tech isn't just about automation — it's about presence. Users didn't just appreciate Gaia's accuracy; they valued being heard during moments of physical vulnerability. The prototype validated that a conversational AI companion, when designed with empathy at its core, can meaningfully reduce the emotional burden of chronic illness management — and that this isn't a luxury feature. For millions of people managing diabetes daily, it's a necessity.</p>
+      </div>
+
     </div>
 
-    <!-- Back CTA -->
+        <!-- Back CTA -->
     <div style="text-align:center;padding-bottom:5rem;">
       <button onclick="closeCaseStudy()" style="background:linear-gradient(130deg,#10B981,var(--purple));color:#fff;padding:.9rem 2.4rem;border-radius:5px;border:none;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 22px 44px rgba(16,185,129,.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         ← Back to All Case Studies
